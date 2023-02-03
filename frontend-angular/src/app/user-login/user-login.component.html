@@ -1,0 +1,67 @@
+<!-- <div class="body">
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form #basicform="ngForm" (submit)="getData(basicform.value)">
+					<label for="chk" aria-hidden="true">Sign up</label>
+					<input type="text" ngModel name="uName" placeholder="User name" required="">
+					<input type="email" ngModel name="email" placeholder="Email" required="">
+					<input type="password" ngModel name="pswd" placeholder="Password" required="">
+					<button class="button-on-black">Sign up</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form #form="ngForm" (submit)="getData(form.value)">
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" ngModel name="email" placeholder="Email" required="">
+					<input type="password" ngModel name="pswd" placeholder="Password" required="">
+					<button>Login</button>
+				</form>
+			</div>
+	</div>
+</div> -->
+
+<div class="body">
+	<div class="main">
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+		<div class="signup">
+			<form [formGroup]="signUpForm" (ngSubmit)="validationSignup">
+				<!-- <form [formGroup]="signUpForm" (ngSubmit)="userSignUp()" (ngSubmit)="invalidUserSignup()" > -->
+
+				<label for="chk" aria-hidden="true">Sign up</label>
+				<input type="text" name="user" placeholder="User name" formControlName="user">
+
+				<input type="email" name="email" placeholder="Email" formControlName="email">
+
+				<input type="password" name="pswd" placeholder="Password" formControlName="pswd">
+
+				<!-- <button class="button-on-black" [disabled]="signUpForm.invalid">Sign up</button> -->
+
+				<button class="button-on-black">Sign up</button>
+
+				<div class="invalid" *ngIf="varCheck">{{errorMsg}}</div>
+
+
+			</form>
+		</div>
+
+		<div class="login">
+			<!-- <form [formGroup]="loginForm" (ngSubmit)="userLogin()" (ngSubmit)="invalidUserlogin()"> -->
+			<form [formGroup]="loginForm" (ngSubmit)="validationLogin">
+
+				<label for="chk" aria-hidden="true">Login</label>
+				<input type="email" name="email" placeholder="Email" formControlName="email">
+				<input type="password" name="pswd" placeholder="Password" formControlName="pswd">
+
+				<!-- <button [disabled]="loginForm.invalid" >Login</button> -->
+				<button>Login</button>
+				<div class="invalid" *ngIf="varCheck">{{errorMsg}}</div>
+
+
+			</form>
+		</div>
+	</div>
+</div>

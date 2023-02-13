@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 
@@ -10,8 +9,14 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  //   constructor(private router: Router) {}
+  
   title = 'jumpStartUp'
 
+  // ngOnInit() {             // This redirects to home page after reload..
+  //   this.router.navigate([''])
+  // }
 
 }
 

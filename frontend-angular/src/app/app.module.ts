@@ -10,7 +10,6 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { LandingComponent } from './landing/landing.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -1132,11 +1132,11 @@ label {
 }
 
 .sr .has-animations .is-revealing {
-    visibility: hidden
+    visibility: visible                       
 }
 
 .has-animations .anime-element {
-    visibility: hidden
+    visibility: visible
 }
 
 .anime-ready .has-animations .anime-element {

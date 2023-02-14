@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CheckboxRequiredValidator, FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
-
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -8,9 +8,23 @@ import { CheckboxRequiredValidator, FormControl, FormGroup, RequiredValidator, V
   styleUrls: ['./user-login.component.css']
 })
 
-
 export class UserLoginComponent {
+  a = false ;
+  constructor(
+    private route: ActivatedRoute,
+  ) {
+    this.myfunction();
 
+   }
+
+  myfunction(){
+    this.route.fragment.subscribe((fragment) => {
+       if(fragment!=null){
+         this.a= true
+       }
+    })
+  }
+  
   signUpForm = new FormGroup({
 
     user: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]+$')]),
@@ -138,7 +152,8 @@ export class UserLoginComponent {
       return false;
   }
 
-}
+  
+} 
 
 
 

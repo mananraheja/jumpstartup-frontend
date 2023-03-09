@@ -14,6 +14,8 @@ import {UserComponent } from './main/user/user.component';
 import { InvestorComponent } from './main/user/investor/investor.component';
 import { FreelancerComponent } from './main/user/freelancer/freelancer.component';
 import { EntrepreneurComponent } from './main/user/entrepreneur/entrepreneur.component';
+import { HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { EntrepreneurComponent } from './main/user/entrepreneur/entrepreneur.com
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     // FormsModule
   ],
   providers: [],

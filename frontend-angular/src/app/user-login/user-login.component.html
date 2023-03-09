@@ -19,7 +19,7 @@
 		<div class="login" id="login">
 			<form [formGroup]="loginForm" (ngSubmit)="validationLogin">
 				<label for="chk" aria-hidden="true">Login</label>
-				<input type="email" name="email" placeholder="Email" formControlName="email">
+				<input type="text" name="user" placeholder="User Name" formControlName="user">
 				<input type="password" name="pswd" placeholder="Password" formControlName="pswd">
 				<!-- <button [disabled]="loginForm.invalid" >Login</button> --> <!--for reference-->
 				<button>Login</button>

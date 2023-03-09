@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CheckboxRequiredValidator, FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { RESTAPIService} from '../restapiservice.service';
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-user-login',
@@ -12,6 +14,8 @@ export class UserLoginComponent {
   a = false ;
   constructor(
     private route: ActivatedRoute,
+    private service: RESTAPIService,
+    private router: Router
   ) {
     this.myfunction();
 
@@ -33,7 +37,7 @@ export class UserLoginComponent {
 
   })
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    user: new FormControl('', [Validators.required]),
     pswd: new FormControl('', [Validators.required, Validators.minLength(5)])
   })
 
@@ -104,18 +108,31 @@ export class UserLoginComponent {
   }
 
   userSignUp() {
-    console.log(this.signUpForm.value)
+    
+    // let userDetails = {      username: this.signUpForm.get('user'),      email: this.signUpForm.get('email'),      hashpass: this.signUpForm.get('pswd'),  type: 'investor'    };
+    //let body = JSON.parse(JSON.stringify(this.signUpForm))
+    const obj: { username: string, email: string, hashpass: string, type: string } = {
+      username: this.signUpForm.value.user??"",
+      email: this.signUpForm.value.email??"",
+      hashpass: this.signUpForm.value.pswd??"",
+      type: 'investor'
+
+    };
+    const body: string = JSON.stringify(obj);
+    this.service.postCreateUser(body).subscribe({
+      complete: () => { 
+        console.log(this.signUpForm.value)
+        this.router.navigate(['home']) 
+      },
+      error: (err) => { console.error(err) 
+      }
+    });
   }
 
   get invalidUserlogin() {
-    if (this.emailLogin && this.emailLogin.hasError('required')) {
-      this.errorMsg = "*E-mail required"
+    if (this.userLoginGet && this.userLoginGet.hasError('required')) {
+      this.errorMsg = "*Username required"
       // console.log("invalid email address");
-      return true;
-    }
-
-    else if (this.emailLogin && this.emailLogin.invalid) {
-      this.errorMsg = "*Invalid e-mail address";
       return true;
     }
 
@@ -132,8 +149,8 @@ export class UserLoginComponent {
     else return false;
   }
 
-  get emailLogin() {
-    return this.loginForm.get('email');
+  get userLoginGet() {
+    return this.loginForm.get('user');
   }
 
   get loginpass() {
@@ -141,7 +158,19 @@ export class UserLoginComponent {
   }
 
   userLogin() {
-    console.log(this.loginForm.value)
+    const obj: { username: string, hashpass: string } = {
+      username: this.loginForm.value.user??"",
+      hashpass: this.loginForm.value.pswd??""
+    };
+    const body: string = JSON.stringify(obj);
+    this.service.postLoginUser(body).subscribe({
+      complete: () => { 
+        console.log(this.loginForm.value);
+        this.router.navigate(['home']) 
+      },
+      error: (err) => { console.error(err) 
+      }
+    });
   }
 
 

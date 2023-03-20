@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
  
-  user:string= "investor";
+  user:string= "freelancer";
 
   checkRole(): string{
    // var user="entrepreneur";

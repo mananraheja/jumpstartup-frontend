@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NavbarComponent } from './navbar/navbar.component';
+import { UserComponent } from './user/user.component';
 import { MainComponent } from './main.component';
+import { FreelancerComponent } from './user/freelancer/freelancer.component';
+import { InvestorComponent } from './user/investor/investor.component';
+import { EntrepreneurComponent } from './user/entrepreneur/entrepreneur.component';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -8,7 +12,7 @@ describe('MainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainComponent ]
+      declarations: [ MainComponent,NavbarComponent,UserComponent ,FreelancerComponent,EntrepreneurComponent,InvestorComponent]
     })
     .compileComponents();
 

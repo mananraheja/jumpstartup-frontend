@@ -1,13 +1,16 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { RESTAPIService } from './restapiservice.service';
 
-import { RESTAPIServiceService } from './restapiservice.service';
 
 describe('RESTAPIServiceService', () => {
-  let service: RESTAPIServiceService;
+  let service: RESTAPIService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(RESTAPIServiceService);
+    TestBed.configureTestingModule({
+      imports:[HttpClientTestingModule]
+    });
+    service = TestBed.inject(RESTAPIService);
   });
 
   it('should be created', () => {

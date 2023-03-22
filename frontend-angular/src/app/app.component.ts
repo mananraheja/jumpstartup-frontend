@@ -12,7 +12,7 @@ export class AppComponent {
 
   //   constructor(private router: Router) {}
   
-  title = 'jumpStartUp'
+  title = 'jumpStartUp app is running!'
 
   // ngOnInit() {             // This redirects to home page after reload..
   //   this.router.navigate([''])

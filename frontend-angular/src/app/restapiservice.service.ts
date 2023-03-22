@@ -4,7 +4,7 @@ import { HttpClient,HttpHeaders} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class RESTAPIService {
+export class RESTAPIService{
 
   url = "http://localhost:8080";
 

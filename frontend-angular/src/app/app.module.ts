@@ -15,6 +15,7 @@ import { InvestorComponent } from './main/user/investor/investor.component';
 import { FreelancerComponent } from './main/user/freelancer/freelancer.component';
 import { EntrepreneurComponent } from './main/user/entrepreneur/entrepreneur.component';
 import { HttpClientModule} from '@angular/common/http';
+import { RESTAPIService } from './restapiservice.service';
 
 
 
@@ -38,7 +39,9 @@ import { HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     // FormsModule
   ],
-  providers: [],
+  providers: [
+    RESTAPIService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

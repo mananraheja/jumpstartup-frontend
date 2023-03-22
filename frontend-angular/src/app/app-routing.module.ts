@@ -8,7 +8,7 @@ import { MainComponent } from './main/main.component';
 const routes: Routes = [
   {path:'',redirectTo:'landing',pathMatch:'full'}, // redirect to landing page 
   {path:'login-signup',component: UserLoginComponent},
-  {path:'landing',component: LandingComponent},
+  {path:'JumpStartUp',component: LandingComponent},
   // {path:'**' , component: pagenotfound} make a new component to implement this feature
   {path:'home',component: MainComponent}
 ];

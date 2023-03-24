@@ -16,6 +16,12 @@ import { FreelancerComponent } from './main/user/freelancer/freelancer.component
 import { EntrepreneurComponent } from './main/user/entrepreneur/entrepreneur.component';
 import { HttpClientModule} from '@angular/common/http';
 import { RESTAPIService } from './restapiservice.service';
+import { InputFormInvestorComponent } from './input-form-investor/input-form-investor.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import { MatButtonModule} from '@angular/material/button';
+import { MatInputModule} from '@angular/material/input'
+
 
 
 
@@ -30,6 +36,7 @@ import { RESTAPIService } from './restapiservice.service';
     EntrepreneurComponent,
     MainComponent,
     NavbarComponent,
+    InputFormInvestorComponent,
     ],
   imports: [
     BrowserModule,
@@ -37,6 +44,8 @@ import { RESTAPIService } from './restapiservice.service';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatStepperModule, MatInputModule, MatButtonModule,
     // FormsModule
   ],
   providers: [

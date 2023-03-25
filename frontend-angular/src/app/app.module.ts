@@ -20,7 +20,9 @@ import { InputFormInvestorComponent } from './input-form-investor/input-form-inv
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
 import { MatButtonModule} from '@angular/material/button';
-import { MatInputModule} from '@angular/material/input'
+import { MatInputModule} from '@angular/material/input';
+import { InputFormFreelancerComponent } from './input-form-freelancer/input-form-freelancer.component';
+import { InputFormEntrepreneurComponent } from './input-form-entrepreneur/input-form-entrepreneur.component'
 
 
 
@@ -37,6 +39,8 @@ import { MatInputModule} from '@angular/material/input'
     MainComponent,
     NavbarComponent,
     InputFormInvestorComponent,
+    InputFormFreelancerComponent,
+    InputFormEntrepreneurComponent,
     ],
   imports: [
     BrowserModule,

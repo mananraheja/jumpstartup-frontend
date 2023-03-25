@@ -9,7 +9,7 @@ import {InputFormEntrepreneurComponent} from './input-form-entrepreneur/input-fo
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'landing',pathMatch:'full'}, // redirect to landing page 
+  {path:'',component:LandingComponent}, // redirect to landing page 
   {path:'login-signup',component: UserLoginComponent},
   {path:'JumpStartUp',component: LandingComponent},
   // {path:'**' , component: pagenotfound} make a new component to implement this feature

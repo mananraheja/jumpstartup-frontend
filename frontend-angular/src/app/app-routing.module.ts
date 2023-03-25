@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { LandingComponent } from './landing/landing.component';
 import { MainComponent } from './main/main.component';
-import {InputFormInvestorComponent} from './input-form-investor/input-form-investor.component'
+import {InputFormInvestorComponent} from './input-form-investor/input-form-investor.component';
+import {InputFormFreelancerComponent} from './input-form-freelancer/input-form-freelancer.component';
+import {InputFormEntrepreneurComponent} from './input-form-entrepreneur/input-form-entrepreneur.component';
 
 
 const routes: Routes = [
@@ -12,7 +14,9 @@ const routes: Routes = [
   {path:'JumpStartUp',component: LandingComponent},
   // {path:'**' , component: pagenotfound} make a new component to implement this feature
   {path:'home',component: MainComponent},
-  {path:'addInvestorDetails',component: InputFormInvestorComponent}
+  {path:'addInvestorDetails',component: InputFormInvestorComponent},
+  {path:'addFreelancerDetails',component: InputFormFreelancerComponent},
+  {path:'addEntrepreneurDetails',component: InputFormEntrepreneurComponent},
 
 ];
 

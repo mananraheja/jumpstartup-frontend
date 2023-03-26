@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 @Component({
   selector: 'app-freelancer',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./freelancer.component.css']
 })
 export class FreelancerComponent {
+  constructor(){
+    this.childVar='';
+  }
+  @Input() childVar: string;
 
 }

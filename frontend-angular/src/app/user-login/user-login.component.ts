@@ -33,8 +33,8 @@ export class UserLoginComponent {
 
     user: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]+$')]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    pswd: new FormControl('', [Validators.required, Validators.minLength(5)])
-
+    pswd: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    type: new FormControl()
   })
   loginForm = new FormGroup({
     user: new FormControl('', [Validators.required]),
@@ -108,23 +108,20 @@ export class UserLoginComponent {
   }
 
   userSignUp() {
-    
-    // let userDetails = {      username: this.signUpForm.get('user'),      email: this.signUpForm.get('email'),      hashpass: this.signUpForm.get('pswd'),  type: 'investor'    };
-    //let body = JSON.parse(JSON.stringify(this.signUpForm))
     const obj: { username: string, email: string, hashpass: string, type: string } = {
       username: this.signUpForm.value.user??"",
       email: this.signUpForm.value.email??"",
       hashpass: this.signUpForm.value.pswd??"",
-      type: 'investor'
-
+      type: this.signUpForm.value.type??""
     };
     const body: string = JSON.stringify(obj);
-    this.service.postCreateUser(body).subscribe({
-      complete: () => { 
-        console.log(this.signUpForm.value)
+    this.service.postCreateUser(body).subscribe((details :any) => {
+      { 
+        localStorage.setItem('username',details['username']);
+        localStorage.setItem('type',details['type']);
+        localStorage.setItem('uuid',details['uuid']);
+        console.log(details);
         this.router.navigate(['home']) 
-      },
-      error: (err) => { console.error(err) 
       }
     });
   }

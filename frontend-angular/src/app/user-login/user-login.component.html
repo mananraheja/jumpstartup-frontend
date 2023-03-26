@@ -5,11 +5,16 @@
 
 		<div class="signup">
 			<form [formGroup]="signUpForm" (ngSubmit)="validationSignup">
-				<!-- <form [formGroup]="signUpForm" (ngSubmit)="userSignUp()" (ngSubmit)="invalidUserSignup()" > --> <!--for reference-->
 				<label for="chk" aria-hidden="true">Sign up</label>
 				<input type="text" name="user" placeholder="User name" formControlName="user">
 				<input type="email" name="email" placeholder="Email" formControlName="email">
 				<input type="password" name="pswd" placeholder="Password" formControlName="pswd">
+				<select class="form-select" aria-label="Default select example" formControlName="type">
+					<option value="Entrepreneur" selected>Entrepreneur</option>
+					<option value="Freelancer">Freelancer</option>
+					<option value="Investor">Investor</option>
+				</select>
+				
 				<button class="button-on-black">Sign up</button>
 
 				<div class="invalid" *ngIf="varCheck">{{errorMsg}}</div>

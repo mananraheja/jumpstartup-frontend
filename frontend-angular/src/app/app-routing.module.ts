@@ -3,14 +3,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { LandingComponent } from './landing/landing.component';
 import { MainComponent } from './main/main.component';
+import {InputFormInvestorComponent} from './input-form-investor/input-form-investor.component';
+import {InputFormFreelancerComponent} from './input-form-freelancer/input-form-freelancer.component';
+import {InputFormEntrepreneurComponent} from './input-form-entrepreneur/input-form-entrepreneur.component';
 
 
 const routes: Routes = [
   {path:'',redirectTo:'landing',pathMatch:'full'}, // redirect to landing page 
   {path:'login-signup',component: UserLoginComponent},
-  {path:'landing',component: LandingComponent},
+  {path:'JumpStartUp',component: LandingComponent},
   // {path:'**' , component: pagenotfound} make a new component to implement this feature
-  {path:'home',component: MainComponent}
+  {path:'home',component: MainComponent},
+  {path:'addInvestorDetails',component: InputFormInvestorComponent},
+  {path:'addFreelancerDetails',component: InputFormFreelancerComponent},
+  {path:'addEntrepreneurDetails',component: InputFormEntrepreneurComponent},
+
 ];
 
 

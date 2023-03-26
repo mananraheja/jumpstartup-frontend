@@ -4,7 +4,7 @@ import { HttpClient,HttpHeaders} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class RESTAPIService {
+export class RESTAPIService{
 
   url = "http://localhost:8080";
 
@@ -24,6 +24,16 @@ export class RESTAPIService {
   postLoginUser(user: any) {
     console.log(user)
     return this.http.post(this.url+'/login', user, this.httpOptions);
+  }
+
+  postAddFreelancerDetails( details: any){
+    console.log(details)
+    return this.http.post(this.url+'/freelancer/add',details,this.httpOptions);
+  }
+
+  putUpdateUserDetails(details:any){
+    console.log(details);
+    return this.http.put(this.url+'/login/updateUser',details,this.httpOptions)
   }
 
 }

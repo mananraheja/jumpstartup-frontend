@@ -120,12 +120,16 @@ export class UserLoginComponent {
       type: this.signUpForm.value.type??""
     };
     const body: string = JSON.stringify(obj);
-    this.service.postCreateUser(body).subscribe({
-      complete: () => { 
+    this.service.postCreateUser(body).subscribe((details :any) => {
+      {
+        localStorage.setItem('username',details['username']);
+        localStorage.setItem('type',details['type']);
+        localStorage.setItem('uuid',details['uuid']);
+        console.log(details);
         this.router.navigate(['home']) 
       }
-    });
-  }
+      });
+    }
 
    invalidUserlogin() {
 
@@ -165,13 +169,15 @@ export class UserLoginComponent {
       hashpass: this.loginForm.value.pswd??""
     };
     const body: string = JSON.stringify(obj);
-    this.service.postLoginUser(body).subscribe({
-      complete: () => { 
+    this.service.postLoginUser(body).subscribe((details :any) => {
+      {
+        localStorage.setItem('username',details['username']);
+        localStorage.setItem('type',details['type']);
+        localStorage.setItem('uuid',details['uuid']);
+        console.log(details);
         this.router.navigate(['home']) 
-      },
-      error: (err) => { console.error(err) 
       }
-    });
+      });
   }
 
 

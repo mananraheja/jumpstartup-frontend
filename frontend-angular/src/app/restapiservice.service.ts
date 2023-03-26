@@ -26,4 +26,14 @@ export class RESTAPIService{
     return this.http.post(this.url+'/login', user, this.httpOptions);
   }
 
+  postAddFreelancerDetails( details: any){
+    console.log(details)
+    return this.http.post(this.url+'/freelancer/add',details,this.httpOptions);
+  }
+
+  putUpdateUserDetails(details:any){
+    console.log(details);
+    return this.http.put(this.url+'/login/updateUser',details,this.httpOptions)
+  }
+
 }

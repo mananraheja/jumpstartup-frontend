@@ -9,7 +9,7 @@ import { MainComponent } from '../main.component';
 })
 export class UserComponent {
 
-  user:string= "freelancer";
+  user:string= "investor";
 
   checkRole(): string{
    // var user="entrepreneur";

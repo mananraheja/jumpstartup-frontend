@@ -22,7 +22,7 @@ export class LandingComponent {
   constructor(private router: Router) {
   }
   urlNavSignUp() {
-    console.log('hey there');
+    // console.log('hey there'); testing purpose
     this.router.navigate(['/login-signup']);
   }
 

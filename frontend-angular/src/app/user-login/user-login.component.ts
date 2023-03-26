@@ -16,10 +16,12 @@ export class UserLoginComponent {
     private route: ActivatedRoute,
     private service: RESTAPIService,
     private router: Router
-  ) {
+  ) 
+
+  {
     this.myfunction();
 
-   }
+  }
 
   myfunction(){
     this.route.fragment.subscribe((fragment) => {
@@ -43,8 +45,8 @@ export class UserLoginComponent {
 
   errorMsg: string = "";
 
-  get validationSignup() {
-    if (this.invalidUserSignup) {
+    validationSignup() {
+    if (this.invalidUserSignup()) {
       return false;
     }
     else {
@@ -54,8 +56,8 @@ export class UserLoginComponent {
     }
   }
 
-  get validationLogin() {
-    if (this.invalidUserlogin) {
+   validationLogin() {
+    if (this.invalidUserlogin()) {
       return false;
     }
     else {
@@ -64,50 +66,53 @@ export class UserLoginComponent {
       return true;
     };
   }
-  get invalidUserSignup() {
-
-    if (this.signupUser && this.signupUser.hasError('required')) {
+   invalidUserSignup() {
+    const signupUser = this.signupUser();
+    const emailSignUp= this.emailSignUp();
+    const signuppass= this.signuppass();
+    if (signupUser && signupUser.hasError('required')) {
       this.errorMsg = "*Username required";
       return true;
     }
-    else if (this.signupUser && this.signupUser.invalid) {
+    else if (signupUser && signupUser.invalid) {
       this.errorMsg = "*Invalid username";
       return true;
     }
 
-    else if (this.emailSignUp && this.emailSignUp.hasError('required')) {
+    else if (emailSignUp && emailSignUp.hasError('required')) {
       this.errorMsg = "*E-mail address required";
       return true;
     }
 
-    else if (this.emailSignUp && this.emailSignUp.invalid) {
-      this.errorMsg = "Invalid email address";
+    else if (emailSignUp && emailSignUp.invalid) {
+      this.errorMsg = "*Invalid email address";
       return true;
     }
-    else if (this.signuppass && this.signuppass.hasError('required')) {
+    else if (signuppass && signuppass.hasError('required')) {
       this.errorMsg = "*Password required";
       return true;
     }
-    else if (this.signuppass && this.signuppass.invalid) {
+    else if (signuppass && signuppass.invalid) {
       this.errorMsg = "*Password must contain atleast 5 characters";
       return true;
     }
     else return false;
   }
 
-  get signupUser() {
+   signupUser() {
     return this.signUpForm.get('user')
   }
 
-  get emailSignUp() {
+   emailSignUp() {
     return this.signUpForm.get('email')
   }
 
-  get signuppass() {
+  signuppass() {
     return this.signUpForm.get('pswd')
   }
 
   userSignUp() {
+    
     const obj: { username: string, email: string, hashpass: string, type: string } = {
       username: this.signUpForm.value.user??"",
       email: this.signUpForm.value.email??"",
@@ -115,30 +120,30 @@ export class UserLoginComponent {
       type: this.signUpForm.value.type??""
     };
     const body: string = JSON.stringify(obj);
-    this.service.postCreateUser(body).subscribe((details :any) => {
-      { 
-        localStorage.setItem('username',details['username']);
-        localStorage.setItem('type',details['type']);
-        localStorage.setItem('uuid',details['uuid']);
-        console.log(details);
+    this.service.postCreateUser(body).subscribe({
+      complete: () => { 
         this.router.navigate(['home']) 
       }
     });
   }
 
-  get invalidUserlogin() {
-    if (this.userLoginGet && this.userLoginGet.hasError('required')) {
+   invalidUserlogin() {
+
+    const userLoginGet = this.userLoginGet();
+    const loginpass = this.loginpass();
+
+    if (userLoginGet && userLoginGet.hasError('required')) {
       this.errorMsg = "*Username required"
       // console.log("invalid email address");
       return true;
     }
 
-    else if (this.loginpass && this.loginpass.hasError('required')) {
+    else if (loginpass && loginpass.hasError('required')) {
       this.errorMsg = "*Password required";
       // console.log("Invalid password");
       return true;
     }
-    else if (this.loginpass && this.loginpass.invalid) {
+    else if (loginpass && loginpass.invalid) {
       this.errorMsg = "*Password must contain atleast 5 characters";
       return true;
     }
@@ -146,11 +151,11 @@ export class UserLoginComponent {
     else return false;
   }
 
-  get userLoginGet() {
+  userLoginGet() {
     return this.loginForm.get('user');
   }
 
-  get loginpass() {
+   loginpass() {
     return this.loginForm.get('pswd');
   }
 
@@ -162,7 +167,6 @@ export class UserLoginComponent {
     const body: string = JSON.stringify(obj);
     this.service.postLoginUser(body).subscribe({
       complete: () => { 
-        console.log(this.loginForm.value);
         this.router.navigate(['home']) 
       },
       error: (err) => { console.error(err) 

@@ -22,7 +22,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { MatButtonModule} from '@angular/material/button';
 import { MatInputModule} from '@angular/material/input';
 import { InputFormFreelancerComponent } from './input-form-freelancer/input-form-freelancer.component';
-import { InputFormEntrepreneurComponent } from './input-form-entrepreneur/input-form-entrepreneur.component'
+import { InputFormEntrepreneurComponent } from './input-form-entrepreneur/input-form-entrepreneur.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component'
 
 
 
@@ -41,6 +42,7 @@ import { InputFormEntrepreneurComponent } from './input-form-entrepreneur/input-
     InputFormInvestorComponent,
     InputFormFreelancerComponent,
     InputFormEntrepreneurComponent,
+    ProfilePageComponent,
     ],
   imports: [
     BrowserModule,

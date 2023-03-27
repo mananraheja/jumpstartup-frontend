@@ -9,7 +9,9 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
  
-  user:string= "freelancer";
+  // user:string= "freelancer";
+  user :string= localStorage.getItem('type')??""
+  user_name = localStorage.getItem('username')??""
 
   checkRole(): string{
    // var user="entrepreneur";

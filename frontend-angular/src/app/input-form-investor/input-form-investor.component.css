@@ -15,3 +15,7 @@
 .color {
     color: #3eb0b8 !important;
 }
+
+.pb-4 {
+  padding-bottom: 2.5rem!important;
+}

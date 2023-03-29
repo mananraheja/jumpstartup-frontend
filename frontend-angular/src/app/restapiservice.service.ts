@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders} from '@angular/common/http';
+import {firstValueFrom} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,12 @@ import { HttpClient,HttpHeaders} from '@angular/common/http';
 export class RESTAPIService{
 
   url = "http://localhost:8080";
+
+  get = {
+    event: (uuid: string): Promise<any> => {
+      return this.http.get(this.url+`/freelancer/${uuid}`).toPromise();
+    }
+   }
 
 
   constructor(private http: HttpClient) { }

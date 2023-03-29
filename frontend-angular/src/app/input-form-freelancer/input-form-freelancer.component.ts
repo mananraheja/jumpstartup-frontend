@@ -68,5 +68,6 @@ export class InputFormFreelancerComponent {
         console.error(err) 
       }
     });
+
   }
 }

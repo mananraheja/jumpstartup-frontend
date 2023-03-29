@@ -18,7 +18,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { RESTAPIService } from './restapiservice.service';
 import { InputFormInvestorComponent } from './input-form-investor/input-form-investor.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule} from '@angular/material/button';
 import { MatInputModule} from '@angular/material/input';
 import { InputFormFreelancerComponent } from './input-form-freelancer/input-form-freelancer.component';
@@ -51,7 +51,9 @@ import { ProfilePageComponent } from './profile-page/profile-page.component'
     ReactiveFormsModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatStepperModule, MatInputModule, MatButtonModule,
+    MatStepperModule, 
+    MatInputModule, 
+    MatButtonModule,
     // FormsModule
   ],
   providers: [

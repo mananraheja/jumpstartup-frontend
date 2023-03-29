@@ -1,6 +1,6 @@
 <div>
     <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark" style="height:843px">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark" style="height:919px">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 apple">
                 <a href="/"
                     class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -21,7 +21,7 @@
                         id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="hugenerd" width="30" height="30"
                             class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">Harsh Grover</span>
+                        <span class="d-none d-sm-inline mx-1">{{user_name}}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item color hovered" href="#">Settings</a></li>
@@ -49,12 +49,7 @@
                             <input matInput placeholder="Last name" formControlName="lastName" required>
                         </mat-form-field>
                     </div>
-                    <div>
-                        <mat-form-field appearance="fill">
-                            <mat-label>Email</mat-label>
-                            <input matInput placeholder="Email" formControlName="email" required>
-                        </mat-form-field>
-                    </div>
+                    
                     <div>
                         <mat-form-field appearance="fill">
                             <mat-label>Phone Number</mat-label>

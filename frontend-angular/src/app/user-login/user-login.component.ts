@@ -125,6 +125,7 @@ export class UserLoginComponent {
         localStorage.setItem('username',details['username']);
         localStorage.setItem('type',details['type']);
         localStorage.setItem('uuid',details['uuid']);
+        localStorage.setItem('email',details['email']);
         console.log(details);
         this.router.navigate(['home']) 
       }
@@ -174,6 +175,7 @@ export class UserLoginComponent {
         localStorage.setItem('username',details['username']);
         localStorage.setItem('type',details['type']);
         localStorage.setItem('uuid',details['uuid']);
+        localStorage.setItem('email',details['email']);
         console.log(details);
         this.router.navigate(['home']) 
       }

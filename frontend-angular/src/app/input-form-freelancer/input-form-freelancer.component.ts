@@ -9,11 +9,14 @@ import { Router } from "@angular/router";
   styleUrls: ['./input-form-freelancer.component.css']
 })
 export class InputFormFreelancerComponent {
+ 
+
+
+   user_name = localStorage.getItem('username')??""
 
   firstFormGroup = this._formBuilder.group({
     firstName: ['', Validators.required],
     lastName:['',Validators.required],
-    email:['',Validators.required],
     phoneNumber:['',Validators.required],
     linkedinLink:['',Validators.required],
     skills:['',Validators.required]
@@ -36,10 +39,9 @@ export class InputFormFreelancerComponent {
       firstName: this.firstFormGroup.value.firstName??"",
       lastName: this.firstFormGroup.value.lastName??""
     }
-    const obj: { uuid: string, username: string, email: string, phone_number: string,  skills: string,  linkedin_link: string,  institution: string, degree: string,  major: string, year_of_completion: number, work_experience:string } = {
+    const obj: { uuid: string, username: string, phone_number: string,  skills: string,  linkedin_link: string,  institution: string, degree: string,  major: string, year_of_completion: number, work_experience:string } = {
       uuid: localStorage.getItem('uuid')??"",
       username: localStorage.getItem('username')??"",
-      email: this.firstFormGroup.value.email??"",
       phone_number: this.firstFormGroup.value.phoneNumber??"",
       skills: this.firstFormGroup.value.skills??"",
       linkedin_link: this.firstFormGroup.value.linkedinLink??"",
@@ -66,5 +68,6 @@ export class InputFormFreelancerComponent {
         console.error(err) 
       }
     });
+
   }
 }

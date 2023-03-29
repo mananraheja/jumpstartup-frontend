@@ -9,7 +9,7 @@ import { MainComponent } from '../main.component';
 })
 export class UserComponent {
 
-  user:string= "investor";
+  user :string= localStorage.getItem('type')??""
 
   checkRole(): string{
    // var user="entrepreneur";

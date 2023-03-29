@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders} from '@angular/common/http';
+import {firstValueFrom} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,13 @@ export class RESTAPIService{
 
   url = "http://localhost:8080";
 
+  get = {
+    event: (uuid: string): Promise<any> => {
+      return this.http.get(this.url+`/freelancer/${uuid}`).toPromise();
+    }
+   }
+
+
   constructor(private http: HttpClient) { }
 
   httpOptions = {
@@ -15,6 +23,8 @@ export class RESTAPIService{
       'Content-Type': 'application/json'
     })
   };
+   
+  uuid= localStorage.getItem('uuid')
 
   postCreateUser(createUser: any) {
     console.log(createUser)
@@ -35,5 +45,30 @@ export class RESTAPIService{
     console.log(details);
     return this.http.put(this.url+'/login/updateUser',details,this.httpOptions)
   }
+
+  postAddInvestorDetails(details:any){
+    console.log(details)
+    return this.http.post(this.url+'/investor/add',details,this.httpOptions);
+  }
+
+  postAddEntrepreneurDetails(details:any){
+    console.log(details)
+    return this.http.post(this.url+'/entrepreneur/add',details,this.httpOptions)
+  }
+
+  getFreelancerUuid (uuid:any){
+   console.log(uuid)
+   return this.http.get(this.url+`/freelancer/${uuid}`)
+  }
+
+  getInvestorUuid (uuid:any){
+    console.log(uuid)
+    return this.http.get(this.url+`/investor/${uuid}`)
+   }
+
+   getEntrepreneurUuid (uuid:any){
+    console.log(uuid)
+    return this.http.get(this.url+`/Entrepreneur/${uuid}`)
+   }
 
 }

@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RESTAPIService } from '../restapiservice.service';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ProfilePageComponent } from './profile-page.component';
 
@@ -8,7 +10,9 @@ describe('ProfilePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfilePageComponent ]
+      imports:[HttpClientModule],
+      declarations: [ ProfilePageComponent ],
+      providers: [ RESTAPIService ]
     })
     .compileComponents();
 

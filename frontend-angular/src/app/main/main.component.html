@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row">
         <app-navbar></app-navbar>
         <div class="container">
@@ -7,4 +7,23 @@
             </div>
         </div>
         </div>
+        </div> -->
+
+<div *ngIf=" router.url.includes('/home')">
+<app-navbar></app-navbar>
+ <app-user></app-user>
+</div>
+
+<div *ngIf=" router.url.includes('/profile')">
+    <div class="container-fluid">
+    <div class="row">
+        <app-navbar></app-navbar>
+        <div class="container">
+            <div class="row">
+                <app-profile></app-profile>
+            </div>
         </div>
+        </div>
+        </div>
+</div>
+    

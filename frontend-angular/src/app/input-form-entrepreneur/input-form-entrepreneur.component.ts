@@ -3,6 +3,7 @@ import {FormBuilder, Validators} from '@angular/forms';
 import { RESTAPIService } from '../restapiservice.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-input-form-entrepreneur',
   templateUrl: './input-form-entrepreneur.component.html',
@@ -25,10 +26,13 @@ export class InputFormEntrepreneurComponent {
    
     domain: ['', Validators.required],
     companyName: ['', Validators.required],
+    is_registered:['',Validators.required],
     stakeHolder: ['', Validators.required],
     companySize: ['', Validators.required],
     fundingStatus: ['', Validators.required],
+    equity_offered: ['', Validators.required],
     assets: ['', Validators.required],
+    open_to_negotiations: ['',Validators.required],
     profit: ['', Validators.required],
     pitch: ['', Validators.required],
 
@@ -46,7 +50,7 @@ export class InputFormEntrepreneurComponent {
       lastName: this.firstFormGroup.value.lastName??""
     }
 
-    const obj: { uuid: string, phone_number:string, domain:string, institution: string, degree:string, major:string, year_of_completion:string, work_experience: string, company_name:string,stakeHolder: string,companySize:string,fundingStatus:string, assets:string , profit:string, pitch: string}={
+    const obj: { uuid: string, phone_number:string, domain:string, institution: string, degree:string, major:string, year_of_completion:string, work_experience: string, company_name:string,is_registered: string, stakeHolder: string,companySize:string,fundingStatus:string, equity_offered:string, assets:string , open_to_negotiations: string,profit:string, pitch: string}={
       uuid: localStorage.getItem('uuid')??"",
       phone_number: this.firstFormGroup.value.phoneNumber??"",
       domain: this.thirdFormGroup.value.domain??"",
@@ -56,10 +60,13 @@ export class InputFormEntrepreneurComponent {
       year_of_completion: this.secondFormGroup.value.yearOfCompletion??"",
       work_experience: this.secondFormGroup.value.workExperience??"",
       company_name: this.thirdFormGroup.value.companyName??"",
+      is_registered: this.thirdFormGroup.value.is_registered??"",
       stakeHolder: this.thirdFormGroup.value.companyName??"",
       companySize: this.thirdFormGroup.value.companySize??"",
       fundingStatus: this.thirdFormGroup.value.fundingStatus??"",
+      equity_offered: this.thirdFormGroup.value.equity_offered??"",
       assets: this.thirdFormGroup.value.assets??"",
+      open_to_negotiations: this.thirdFormGroup.value.open_to_negotiations??"",
       profit:this.thirdFormGroup.value.profit??"",
       pitch: this.thirdFormGroup.value.pitch??""
 

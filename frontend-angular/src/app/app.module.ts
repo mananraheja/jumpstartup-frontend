@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 // import {FormsModule} from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,8 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatInputModule} from '@angular/material/input';
 import { InputFormFreelancerComponent } from './input-form-freelancer/input-form-freelancer.component';
 import { InputFormEntrepreneurComponent } from './input-form-entrepreneur/input-form-entrepreneur.component';
-import { ProfilePageComponent } from './profile-page/profile-page.component'
+import { ProfileComponent } from './main/profile/profile.component';
+import { JobsComponent } from './main/jobs/jobs.component'
 
 
 
@@ -42,7 +44,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component'
     InputFormInvestorComponent,
     InputFormFreelancerComponent,
     InputFormEntrepreneurComponent,
-    ProfilePageComponent,
+    ProfileComponent,
+    JobsComponent,
     ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component'
     MatStepperModule, 
     MatInputModule, 
     MatButtonModule,
+    MatRadioModule,
     // FormsModule
   ],
   providers: [

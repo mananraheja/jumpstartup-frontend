@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import {  Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-main',
@@ -8,7 +10,11 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
  
+currentRoute: string= ''; 
 
+constructor(public router: Router){
+
+}
    
 
 }

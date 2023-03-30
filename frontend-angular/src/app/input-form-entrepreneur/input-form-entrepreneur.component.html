@@ -1,6 +1,6 @@
 <div>
     <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark" style="height:918px">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark" style="height:1175px">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 apple">
                 <a href="/"
                     class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -92,6 +92,7 @@
                               <input matInput placeholder="Work Experience" formControlName="workExperience" required>
                           </mat-form-field>
                       </div>
+                      
                       <div>
                         <button mat-button matStepperPrevious>Back</button>
                         <button mat-button matStepperNext>Next</button>
@@ -111,6 +112,16 @@
                         <input matInput formControlName="companyName" placeholder="Google" required>
                       </mat-form-field>
                     </div>
+                    <div>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Is your company Registered?</mat-label>
+                        <select matNativeControl formControlName= "is_registered" required>
+                          <option value="yes">Yes</option>
+                          <option value="no">No</option>
+                        </select>
+                      </mat-form-field>
+                    </div>
+
                       <div>
                           <mat-form-field appearance="fill">
                               <mat-label>StakeHolder</mat-label>
@@ -135,6 +146,23 @@
                             <mat-label> Assets</mat-label>
                             <input matInput formControlName="assets" placeholder="Factory" required>
                           </mat-form-field>
+                      </div>
+
+                        <div>
+                          <mat-form-field appearance="fill">
+                              <mat-label>Equity Offered</mat-label>
+                              <input matInput formControlName="equity_offered" placeholder="5%" required>
+                            </mat-form-field>
+                        </div>
+
+                      <div>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Are you open to Negotiations?</mat-label>
+                          <select matNativeControl formControlName="open_to_negotiations" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                          </select>
+                        </mat-form-field>
                       </div>
                       <div>
                         <mat-form-field appearance="fill">

@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputFormFreelancerComponent } from './input-form-freelancer.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RESTAPIService } from '../restapiservice.service';
-import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';

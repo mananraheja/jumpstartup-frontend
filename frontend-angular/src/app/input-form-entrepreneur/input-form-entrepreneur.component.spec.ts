@@ -67,7 +67,10 @@ describe('InputFormEntrepreneurComponent', () => {
       fundingStatus:"good",
       assets:"factory",
       profit:"1000",
-      pitch:"too much text"
+      pitch:"too much text",
+      equity_offered: '50%',
+      open_to_negotiations:'Yes',
+      is_registered:'Yes'
     })
 
     component.onSubmit();
@@ -87,10 +90,13 @@ describe('InputFormEntrepreneurComponent', () => {
       year_of_completion: "2022",
       work_experience: 'Frontend Developer at XYZ Company',
       company_name: 'ABC',
+      is_registered: 'Yes',
       stakeHolder: "ABC",
       companySize: "10",
       fundingStatus: "good",
+      equity_offered: '50%',
       assets: "factory",
+      open_to_negotiations:'Yes',
       profit: "1000",
       pitch: "too much text"
     }));
@@ -115,8 +121,11 @@ describe('InputFormEntrepreneurComponent', () => {
       companyName: null,
       stakeHolder: null,
       companySize:null,
+      is_registered: null,
       fundingStatus:null,
+      equity_offered: null,
       assets:null,
+      open_to_negotiations:null,
       profit:null,
       pitch: null
     })
@@ -138,12 +147,15 @@ describe('InputFormEntrepreneurComponent', () => {
       year_of_completion: "",
       work_experience: '',
       company_name: '',
+      is_registered:'',
       stakeHolder: "",
       companySize: "",
       fundingStatus: "",
+      equity_offered: '',
       assets: "",
+      open_to_negotiations:'',
       profit: "",
-      pitch: ""
+      pitch: "",
     }));
     expect(router.navigate).toHaveBeenCalledWith(['home']);
   });

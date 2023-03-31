@@ -7,19 +7,20 @@
 <ng-template #entrepreneurBlock><app-entrepreneur></app-entrepreneur></ng-template> -->
 
 <div *ngIf="checkRole()=='i'">
-    <app-investor></app-investor>
+    <app-investor [childVar]="user"></app-investor>
+    
 </div>
 
 <div *ngIf="checkRole()=='e'">
-    <app-entrepreneur></app-entrepreneur>
+    <!-- <app-entrepreneur></app-entrepreneur> -->
+    <app-entrepreneur [childVar]="user"></app-entrepreneur>
+
 </div>
 
 <div *ngIf="checkRole()=='f'">
-    <app-freelancer></app-freelancer>
+    <!-- <app-freelancer></app-freelancer> -->
+    <app-freelancer [childVar]="user"></app-freelancer>
 </div>
 
-<app-entrepreneur [childVar]="user"></app-entrepreneur>
-<app-investor [childVar]="user"></app-investor>
-<app-freelancer [childVar]="user"></app-freelancer>
 
 

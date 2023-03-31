@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-jobs',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./jobs.component.css']
 })
 export class JobsComponent {
+  constructor(){
+    this.childVar='';
+  }
+  @Input() childVar: string;
+  
+  }
 
-}
+

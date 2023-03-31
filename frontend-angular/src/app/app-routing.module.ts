@@ -8,6 +8,7 @@ import {InputFormFreelancerComponent} from './input-form-freelancer/input-form-f
 import {InputFormEntrepreneurComponent} from './input-form-entrepreneur/input-form-entrepreneur.component';
 // import {ProfilePageComponent} from './profile-page/profile-page.component';
 import { ProfileComponent } from './main/profile/profile.component';
+import { CompanyComponent } from './main/company/company.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path:'addInvestorDetails',component: InputFormInvestorComponent},
   {path:'addFreelancerDetails',component: InputFormFreelancerComponent},
   {path:'addEntrepreneurDetails',component: InputFormEntrepreneurComponent},
-  {path:'profile',component: MainComponent }
+  {path:'profile',component: MainComponent },
+  {path:'jobs',component:MainComponent},
+  {path:'company',component:MainComponent}
 
 ];
 

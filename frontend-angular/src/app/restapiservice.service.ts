@@ -67,7 +67,11 @@ export class RESTAPIService{
 
    getEntrepreneurUuid (uuid:any){
     console.log(uuid)
-    return this.http.get(this.url+`/Entrepreneur/${uuid}`)
+    return this.http.get(this.url+`/entrepreneur/${uuid}`)
+   }
+
+   getAllCompanies(){ 
+     return this.http.get(this.url+`/entrepreneur/`)
    }
 
 }

@@ -33,7 +33,7 @@ export class UserLoginComponent {
   
   signUpForm = new FormGroup({
 
-    user: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]+$')]),
+    user: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z_]+$')]),
     email: new FormControl('', [Validators.required, Validators.email]),
     pswd: new FormControl('', [Validators.required, Validators.minLength(5)]),
     type: new FormControl()

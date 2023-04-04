@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from "@angular/router"
 
 
 @Component({
@@ -8,8 +9,11 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
  
-  user:string= "entrepreneur";
-  // user :string= localStorage.getItem('type')??""
+  constructor(private router: Router){
+
+  }
+  // user:string= "entrepreneur";
+  user :string= localStorage.getItem('type')??""
   user_name = localStorage.getItem('username')??""
 
   checkRole(): string{
@@ -24,5 +28,9 @@ export class NavbarComponent {
      return "undefined";
   }
 
+  go_to_profile_page(){
+    console.log("shreya here")
+    this.router.navigate(['profile'])
+  }
 
 }

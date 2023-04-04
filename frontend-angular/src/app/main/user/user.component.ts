@@ -12,13 +12,13 @@ export class UserComponent {
   user :string= localStorage.getItem('type')??""
 
   checkRole(): string{
-    // console.log(this.user);
+  console.log(this.user);
    // var user="entrepreneur";
-   if (this.user=="Freelancer")
+   if (this.user=="freelancer")
      return "f";
-   else if( this.user=="Investor")
+   else if( this.user=="investor")
      return "i";
-   else if( this.user=="Entrepreneur")
+   else if( this.user=="entrepreneur")
      return "e"
    else 
      return "undefined";

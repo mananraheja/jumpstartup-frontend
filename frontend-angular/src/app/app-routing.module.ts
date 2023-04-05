@@ -10,6 +10,7 @@ import { ProfileComponent } from './main/profile/profile.component';
 import { ViewComponent } from './main/view/view.component';
 import { ChatHomeComponent } from './chat-home/chat-home.component';
 
+import { AddJobsComponent } from './main/add-jobs/add-jobs.component';
 
 const routes: Routes = [
   {path:'',component:LandingComponent}, // redirect to landing page 
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path:'jobs',component:MainComponent},
   {path:'view',component:MainComponent},
   {path:'home/freelancer',component:MainComponent},
-  {path: 'chat',component:ChatHomeComponent}
+  {path: 'chat',component:ChatHomeComponent},
+  {path:'addJobs',component:MainComponent}
 
 ];
 

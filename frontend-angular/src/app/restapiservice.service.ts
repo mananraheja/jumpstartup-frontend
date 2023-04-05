@@ -49,6 +49,11 @@ export class RESTAPIService{
     return this.http.post(this.url+'/entrepreneur/add',details,this.httpOptions)
   }
 
+  postJobs(details:any){
+    console.log("INSIDE RESTAPIII",details)
+    return this.http.post(this.url+'/jobs/add',details,this.httpOptions)
+  }
+
   getFreelancerUuid (uuid:any){
    console.log(uuid)
    return this.http.get(this.url+`/freelancer/${uuid}`)

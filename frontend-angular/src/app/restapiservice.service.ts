@@ -8,12 +8,6 @@ export class RESTAPIService{
 
   url = "http://localhost:8080";
 
-  get = {
-    event: (uuid: string): Promise<any> => {
-      return this.http.get(this.url+`/freelancer/${uuid}`).toPromise();
-    }
-   }
-
 
   constructor(private http: HttpClient) { }
 

@@ -3,6 +3,9 @@ import { CheckboxRequiredValidator, FormControl, FormGroup, RequiredValidator, V
 import { ActivatedRoute } from '@angular/router';
 import { RESTAPIService} from '../restapiservice.service';
 import { Router } from "@angular/router"
+import { AuthenticationService } from '../authentication.service';
+import { switchMap } from 'rxjs';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-user-login',
@@ -15,7 +18,9 @@ export class UserLoginComponent {
   constructor(
     private route: ActivatedRoute,
     private service: RESTAPIService,
-    private router: Router
+    private router: Router,
+    private authService: AuthenticationService,
+    private usersService: UsersService
   ) 
 
   {
@@ -32,7 +37,6 @@ export class UserLoginComponent {
   }
   
   signUpForm = new FormGroup({
-
     user: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z_]+$')]),
     email: new FormControl('', [Validators.required, Validators.email]),
     pswd: new FormControl('', [Validators.required, Validators.minLength(5)]),
@@ -112,7 +116,6 @@ export class UserLoginComponent {
   }
 
   userSignUp() {
-    
     const obj: { username: string, email: string, hashpass: string, type: string } = {
       username: this.signUpForm.value.user??"",
       email: this.signUpForm.value.email??"",
@@ -120,6 +123,8 @@ export class UserLoginComponent {
       type: this.signUpForm.value.type??""
     };
     const body: string = JSON.stringify(obj);
+    console.log('harsh');
+    this.firebaseSignUp(obj);
     this.service.postCreateUser(body).subscribe((details :any) => {
       {
         localStorage.setItem('username',details['username']);
@@ -188,6 +193,18 @@ export class UserLoginComponent {
       return true;
     else
       return false;
+  }
+
+  firebaseSignUp(obj:any ){
+    this.authService
+      .signUp(obj.email,obj.hashpass)
+      .pipe(
+        switchMap(({ user: { uid } }) =>
+          this.usersService.addUser({ uid, email: obj.email, displayName: obj.username })
+        )
+      )
+      .subscribe(() => {
+      });
   }
 
   

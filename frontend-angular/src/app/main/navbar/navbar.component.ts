@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from "@angular/router"
+import { Component,OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { EntrepreneurComponent } from '../user/entrepreneur/entrepreneur.component';
 
 
 @Component({
@@ -9,9 +10,20 @@ import { Router } from "@angular/router"
 })
 export class NavbarComponent {
  
-  constructor(private router: Router){
-
+  constructor(private router: Router, private entrepreneur: EntrepreneurComponent){
   }
+// ngOnInit(): void{
+   viewInvestor(){
+    console.log("innnnnn")
+    this.router.navigate(['home'])
+    this.entrepreneur.displayinvestors()
+  }
+  viewFreelancer(){
+    this.router.navigate(['home/freelancer'])
+    this.entrepreneur.displayFreelancers()
+  }
+    
+  
   // user:string= "entrepreneur";
   user :string= localStorage.getItem('type')??""
   user_name = localStorage.getItem('username')??""

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 // import { RESTAPIService} from '../restapiservice/.service';
 import { RESTAPIService } from 'src/app/restapiservice.service';
 
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import {firstValueFrom} from 'rxjs';
 
 @Component({
@@ -11,41 +11,85 @@ import {firstValueFrom} from 'rxjs';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-email:string=localStorage.getItem('email')??""
-type:string = localStorage.getItem('type')??""
-uuid : string = localStorage.getItem('uuid')??""
-username:string =localStorage.getItem('username')??""
-phone :string=''
-domain : string =''
-institution:string=''
-degree : string=''
-major : string =''
-year: string =''
-work_experience=''
-fullName=''
+  email:string=localStorage.getItem('email')??""
+  type:string =localStorage.getItem('type')??""
+  uuid : string =localStorage.getItem('uuid')??""
+  username:string =localStorage.getItem('username')??""
+  phone :string=''
+  domain : string =''
+  institution:string=''
+  degree : string=''
+  major : string =''
+  year: string =''
+  work_experience=''
+  fullName=''
+  skills:string =''
+  
+  company_name=''
+  stakeholder=''
+  company_size=''
+  funding_status=''
+  equity_offered=''
+  assets=''
+  profits_in_last_fy=''
+  open_to_negotiations=''
+  pitch=''
+  
+  funding_available=''
+  brands_built=''
+
+
+
 // if (this.type== 'investor') {
 //   return this.service.getInvestorUuid(this.uuid).subscribe
 // }
-constructor (private service: RESTAPIService,private router: Router){
+constructor (private service: RESTAPIService,private router: Router , private activatedRoute: ActivatedRoute){
+  // this.activatedRoute.queryParams.subscribe(params => {
+  //   this.uuid = params['id'];
+  //   this.type=params['type'];
+  //   console.log(this.uuid + 'uuid')
+  //   console.log(this.type +'type')
+  //   if(this.uuid==undefined && this.type==undefined)
+  //     {
+  //       this.type = localStorage.getItem('type')??""
+  //       this.uuid = localStorage.getItem('uuid')??""
+  //       console.log(this.uuid+' from local')
+  //       console.log(this.type+' from local')
+  //       if (this.type == 'investor') {
+  //         this.investor_profile();
+  //       }
+        
+  //       else if( this.type=='entrepreneur'){
+  //         this.entrepreneur_profile();
+        
+           
+  //          }
+        
+  //       else if (this.type=='freelancer'){
+  //         this.freelancer_profile();
+  //         // this.service.getFreelancerUuid(this.uuid).subscribe((body:any)=>{
+  //         //   console.log(body['uuid'])
+  //         //  });
+  //       }
+  //     }
+  // });
 
-  if (this.type == 'Investor') {
+  if (this.type == 'investor') {
     this.investor_profile();
-  
   }
   
-  else if( this.type=='Entrepreneur'){
+  else if( this.type=='entrepreneur'){
     this.entrepreneur_profile();
   
      
      }
   
-  else if (this.type=='Freelancer'){
+  else if (this.type=='freelancer'){
     this.freelancer_profile();
-    // this.service.getFreelancerUuid(this.uuid).subscribe((body:any)=>{
-    //   console.log(body['uuid'])
-    //  });
   }
+  console.log('constructor destoryed')
   }
+
 async freelancer_profile(){
   await firstValueFrom(this.service.getFreelancerUuid(this.uuid)).then((body: any)=>{
     console.log(body);
@@ -58,6 +102,7 @@ async freelancer_profile(){
     this.year =body['year_of_completion']
     this.work_experience= body['work_experience']
     this.fullName= body['firstName']+' '+body['lastName']
+    this.skills=body['skills']
   })
 }
 
@@ -75,6 +120,15 @@ async entrepreneur_profile(){
     this.work_experience= body['work_experience']
     this.fullName= body['firstName']+' '+body['lastName']
 
+    this.company_name=body['company_name']
+    this.stakeholder=body['stakeholder']
+    this.company_size=body['company_size']
+    this.funding_status=body['funding_status']
+    this.equity_offered=body['equity_offered']
+    this.open_to_negotiations=body['open_to_negotiations']
+    this.assets=body['assets']
+    this.profits_in_last_fy=body['profits_in_last_fy']
+    this.pitch=body['pitch']
   })
 }
 async investor_profile(){
@@ -90,9 +144,12 @@ async investor_profile(){
     this.year =body['year_of_completion']
     this.work_experience= body['work_experience']
     this.fullName= body['firstName']+' '+body['lastName']
+    this.funding_available=body['funding_available']
+    this.brands_built=body['brands_built']
 
   })
 }
+
 
 
 

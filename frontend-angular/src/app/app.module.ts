@@ -41,6 +41,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { DatePipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { AddJobsComponent } from './main/add-jobs/add-jobs.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { MatMenuModule } from '@angular/material/menu';
     ViewComponent,
     ChatHomeComponent,
     DateDisplayPipe,
+    AddJobsComponent,
     ],
   imports: [
     BrowserModule,

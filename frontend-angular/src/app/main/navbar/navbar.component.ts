@@ -22,6 +22,10 @@ export class NavbarComponent {
     this.router.navigate(['home/freelancer'])
     this.entrepreneur.displayFreelancers()
   }
+  addJobPostings(){
+    console.log('INSIde job postings')
+    this.router.navigate(['addJobs'])
+  }
     
   
   // user:string= "entrepreneur";

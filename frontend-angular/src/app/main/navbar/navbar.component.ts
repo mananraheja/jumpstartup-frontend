@@ -18,6 +18,10 @@ export class NavbarComponent {
     this.router.navigate(['home'])
     this.entrepreneur.displayinvestors()
   }
+  viewFreelancer(){
+    this.router.navigate(['home/freelancer'])
+    this.entrepreneur.displayFreelancers()
+  }
     
   
   // user:string= "entrepreneur";

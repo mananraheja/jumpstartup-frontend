@@ -20,7 +20,8 @@ const routes: Routes = [
   {path:'addEntrepreneurDetails',component: InputFormEntrepreneurComponent},
   {path:'profile',component: MainComponent },
   {path:'jobs',component:MainComponent},
-  {path:'view',component:MainComponent}
+  {path:'view',component:MainComponent},
+  {path:'home/freelancer',component:MainComponent}
 
 ];
 

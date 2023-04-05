@@ -78,4 +78,7 @@ export class RESTAPIService{
     return this.http.get(this.url+`/investor/`)
    }
 
+   getAllFreelancers(){
+    return this.http.get(this.url+`/freelancer`)
+   }
 }

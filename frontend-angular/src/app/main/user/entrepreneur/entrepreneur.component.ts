@@ -25,13 +25,39 @@ investor_obj=[
         "year_of_completion": "",
         "work_experience": ""
 }
-
 ]
+
+freelancer_obj=[{
+        "uuid": "",
+        "firstName": "",
+        "lastName": "",
+        "phone_number": "",
+        "skills": "",
+        "linkedin_link": "",
+        "institution": "",
+        "degree": "",
+        "major": "",
+        "year_of_completion": "",
+        "work_experience": ""
+}]
+
+
+flag:boolean=true
 
 constructor(private service: RESTAPIService, private router: Router){
   console.log("I am inside entrepreneur constructor")
-  this.displayinvestors();
+  if(router.url.includes("/home/freelancer")==true)
+    {console.log("HOMEE/FREELANCER")
+     this.displayFreelancers()
+     this.flag=false
+   }
+  else if (router.url.includes("/home")==true)
+  { this.flag=true
+    this.displayinvestors();
+  }
 
+  // console.log(this.investor_obj);
+   
   this.childVar='';
 }
 @Input() childVar: string;
@@ -42,7 +68,6 @@ async displayinvestors(){
   console.log("Hey thereee!")
   await firstValueFrom(this.service.getAllInvestors()).then((body:any)=>{
     let len = body.length
-  
     while(this.i<len){
     this.investor_obj=body;
     console.log(this.investor_obj);
@@ -52,6 +77,17 @@ async displayinvestors(){
 
   })
 }
+j:number=0
+async displayFreelancers(){
+ await firstValueFrom(this.service.getAllFreelancers()).then((body:any)=>{
+  let len=body.length
+  while(this.j<len){
+    this.freelancer_obj=body;
+    console.log(this.freelancer_obj);
+    this.j++;
+  }
+ })
+}
 
 viewInvestors(uuid:any){
   console.log('inside view Investors')
@@ -59,5 +95,11 @@ viewInvestors(uuid:any){
    ['/view'],
    {queryParams:{id:uuid, type:'investor'}})
 
+}
+
+viewFreelancers(uuid:any){
+  this.router.navigate(
+    ['/view'],
+    {queryParams:{id:uuid, type:'freelancer'}})
 }
 }

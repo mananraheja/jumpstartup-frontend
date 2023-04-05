@@ -26,7 +26,7 @@ import { InputFormFreelancerComponent } from './input-form-freelancer/input-form
 import { InputFormEntrepreneurComponent } from './input-form-entrepreneur/input-form-entrepreneur.component';
 import { ProfileComponent } from './main/profile/profile.component';
 import { JobsComponent } from './main/jobs/jobs.component';
-import { CompanyComponent } from './main/company/company.component'
+import { ViewComponent } from './main/view/view.component';
 
 
 
@@ -47,7 +47,7 @@ import { CompanyComponent } from './main/company/company.component'
     InputFormEntrepreneurComponent,
     ProfileComponent,
     JobsComponent,
-    CompanyComponent,
+    ViewComponent,
     ],
   imports: [
     BrowserModule,

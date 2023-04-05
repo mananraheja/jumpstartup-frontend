@@ -74,4 +74,8 @@ export class RESTAPIService{
      return this.http.get(this.url+`/entrepreneur/`)
    }
 
+   getAllInvestors(){
+    return this.http.get(this.url+`/investor/`)
+   }
+
 }

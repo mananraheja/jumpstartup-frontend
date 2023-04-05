@@ -52,8 +52,8 @@ async displayCompanies(){
 viewCompanies(uuid:any){
   console.log('inside view companies')
  this.router.navigate(
-  ['/company'],
-  {queryParams:{id:uuid}})
+  ['/view'],
+  {queryParams:{id:uuid, type:'entrepreneur'}})
 }
 
 

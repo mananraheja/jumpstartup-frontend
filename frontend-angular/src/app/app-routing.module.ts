@@ -8,6 +8,8 @@ import {InputFormFreelancerComponent} from './input-form-freelancer/input-form-f
 import {InputFormEntrepreneurComponent} from './input-form-entrepreneur/input-form-entrepreneur.component';
 import { ProfileComponent } from './main/profile/profile.component';
 import { ViewComponent } from './main/view/view.component';
+import { ChatHomeComponent } from './chat-home/chat-home.component';
+
 
 const routes: Routes = [
   {path:'',component:LandingComponent}, // redirect to landing page 
@@ -21,7 +23,8 @@ const routes: Routes = [
   {path:'profile',component: MainComponent },
   {path:'jobs',component:MainComponent},
   {path:'view',component:MainComponent},
-  {path:'home/freelancer',component:MainComponent}
+  {path:'home/freelancer',component:MainComponent},
+  {path: 'chat',component:ChatHomeComponent}
 
 ];
 

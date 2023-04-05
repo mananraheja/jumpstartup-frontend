@@ -13,7 +13,7 @@ export class MainComponent {
 currentRoute: string= ''; 
 
 constructor(public router: Router){
-
+  console.log('harshu')
 }
    
 

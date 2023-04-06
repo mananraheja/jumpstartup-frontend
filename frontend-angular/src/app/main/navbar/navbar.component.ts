@@ -2,7 +2,6 @@ import { Component,OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { EntrepreneurComponent } from '../user/entrepreneur/entrepreneur.component';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -25,8 +24,7 @@ export class NavbarComponent {
   addJobPostings(){
     console.log('INSIde job postings')
     this.router.navigate(['addJobs'])
-  }
-    
+  } 
   
   // user:string= "entrepreneur";
   user :string= localStorage.getItem('type')??""

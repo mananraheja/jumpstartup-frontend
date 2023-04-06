@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { EntrepreneurComponent } from '../user/entrepreneur/entrepreneur.component';
+import { FreelancerComponent } from '../user/freelancer/freelancer.component';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,7 @@ import { EntrepreneurComponent } from '../user/entrepreneur/entrepreneur.compone
 })
 export class NavbarComponent {
  
-  constructor(private router: Router, private entrepreneur: EntrepreneurComponent){
+  constructor(private router: Router, private entrepreneur: EntrepreneurComponent, private freelancer: FreelancerComponent){
   }
 // ngOnInit(): void{
    viewInvestor(){
@@ -25,6 +26,17 @@ export class NavbarComponent {
     console.log('INSIde job postings')
     this.router.navigate(['addJobs'])
   } 
+
+  viewStartUps(){
+    console.log("view startups")
+    this.router.navigate(['home'])
+    this.freelancer.displayCompanies()
+  }
+
+  viewJobs(){
+    this.router.navigate(['home/jobs'])
+    this.freelancer.displayJobs()
+  }
   
   // user:string= "entrepreneur";
   user :string= localStorage.getItem('type')??""

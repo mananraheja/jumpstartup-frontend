@@ -19,7 +19,7 @@
     <app-profile></app-profile>
 </div>
 
-<div *ngIf=" router.url.includes('/jobs')">
+<div *ngIf=" router.url.includes('/displayjob')">
     <app-navbar></app-navbar>
     <app-jobs></app-jobs>
 </div>
@@ -27,4 +27,9 @@
 <div *ngIf=" router.url.includes('/view')">
     <app-navbar></app-navbar>
     <app-view></app-view>
+</div>
+
+<div *ngIf=" router.url.includes('/addJobs')">
+    <app-navbar></app-navbar>
+    <app-add-jobs></app-add-jobs>
 </div>

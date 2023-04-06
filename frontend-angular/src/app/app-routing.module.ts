@@ -22,12 +22,13 @@ const routes: Routes = [
   {path:'addFreelancerDetails',component: InputFormFreelancerComponent},
   {path:'addEntrepreneurDetails',component: InputFormEntrepreneurComponent},
   {path:'profile',component: MainComponent },
-  {path:'jobs',component:MainComponent},
+  {path:'home/jobs',component:MainComponent},
   {path:'view',component:MainComponent},
   {path:'home/freelancer',component:MainComponent},
   {path: 'chat',component:ChatHomeComponent},
-  {path:'addJobs',component:MainComponent}
-
+  {path:'addJobs',component:MainComponent},
+  {path:'home',component:MainComponent},
+  {path:'displayjob',component:MainComponent}
 ];
 
 

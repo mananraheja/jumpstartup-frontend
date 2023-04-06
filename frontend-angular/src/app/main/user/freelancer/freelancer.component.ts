@@ -22,8 +22,30 @@ export class FreelancerComponent {
         "postingDate": ""
 
   }]
+  company_obj=[
+    {"entrepreneurUUID": "",
+          "company_name": "",
+          "is_registered": "",
+          "stakeholder": "",
+          "company_size": "",
+          "funding_status": "",
+          "equity_offered": "",
+          "assets": "",
+          "open_to_negotiations": "",
+          "profits_in_last_fy": "",
+          "pitch": ""}
+  ]
+  flag:boolean=true
   constructor(private service: RESTAPIService,private router: Router ){
-    this.displayJobs()
+    if(this.router.url.includes('/home/jobs')==true){
+      console.log("THIS IS HOME?JOBBSS")
+      this.displayJobs()
+      this.flag=false;
+     }
+   else if ( this.router.url.includes('/home')==true){
+     this.displayCompanies()
+   }
+
     this.childVar='';
   }
   @Input() childVar: string;
@@ -41,13 +63,35 @@ export class FreelancerComponent {
   
     })
   }
+  j:number=0
+  async displayCompanies(){
+    console.log("Hey thereee!")
+    await firstValueFrom(this.service.getAllCompanies()).then((body:any)=>{
+      let len = body.length
+    
+      while(this.j<len){
+      this.company_obj=body;
+      console.log(this.company_obj);
+      this.j++;
+      }
+      console.log(this.company_obj[1])
+  
+    })
+  }
  
   viewJobDetails(jobUuid:string){
     console.log("i AM JOBBBBBB",jobUuid)
       console.log('inside view Investors')
       this.router.navigate(
-       ['/jobs'],
+       ['/displayjob'],
        {queryParams:{jobid:jobUuid}})
+    }
+
+    viewCompanies(uuid:any){
+      console.log('inside view companies')
+     this.router.navigate(
+      ['/view'],
+      {queryParams:{id:uuid, type:'entrepreneur'}})
     }
   }
  

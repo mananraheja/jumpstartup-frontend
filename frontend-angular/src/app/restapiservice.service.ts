@@ -18,6 +18,7 @@ export class RESTAPIService{
   };
    
   uuid= localStorage.getItem('uuid')
+  jobId=""
 
   postCreateUser(createUser: any) {
     console.log(createUser)
@@ -69,6 +70,11 @@ export class RESTAPIService{
     return this.http.get(this.url+`/entrepreneur/${uuid}`)
    }
 
+   getJobUuid (jobId:any){
+    console.log(jobId)
+    return this.http.get(this.url+`/jobs/${jobId}`)
+   }
+
    getAllCompanies(){ 
      return this.http.get(this.url+`/entrepreneur/`)
    }
@@ -79,5 +85,9 @@ export class RESTAPIService{
 
    getAllFreelancers(){
     return this.http.get(this.url+`/freelancer`)
+   }
+
+   getAllJobs(){
+    return this.http.get(this.url+`/jobs`)
    }
 }

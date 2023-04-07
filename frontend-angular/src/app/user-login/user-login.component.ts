@@ -132,10 +132,17 @@ export class UserLoginComponent {
         localStorage.setItem('uuid',details['uuid']);
         localStorage.setItem('email',details['email']);
         console.log(details);
-        this.router.navigate(['home']) 
+        if (localStorage.getItem('type')=='freelancer')
+          this.router.navigate(['addFreelancerDetails']) 
+        else if(localStorage.getItem('type')=='investor')
+          this.router.navigate(['addInvestorDetails'])
+        else if (localStorage.getItem('type')=='entrepreneur')
+          this.router.navigate(['addEntrepreneurDetails'])
       }
       });
+
     }
+  
 
    invalidUserlogin() {
 

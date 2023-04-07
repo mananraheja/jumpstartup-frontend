@@ -12,10 +12,9 @@
                 <mat-form-field appearance="fill">
                   <mat-label>Select the job type</mat-label>
                   <select matNativeControl formControlName= "job_type" required>
-                    <option value="Fulltime">Full-time</option>
-                    <option value="Parttime">Part-time</option>
-                    <option value="Contract">Contract</option>
-
+                    <option value="full-time">Full-time</option>
+                    <option value="part-time">Part-time</option>
+                    <option value="contract">Contract</option>
                   </select>
                 </mat-form-field>
               </div>
@@ -47,15 +46,15 @@
                     <input matInput placeholder="100$" formControlName="pay_estimate" required>
                 </mat-form-field>
             </div>
-            <div>
+            <!-- <div>
                 <mat-form-field appearance="fill">
                     <mat-label>Posting Date</mat-label>
                     <input matInput placeholder="25-03-2023" formControlName="date" required>
                 </mat-form-field>
-            </div>
+            </div> -->
             
             <div>
-              <button (click)="onSubmit()" mat-button matStepperNext>Post</button>
+              <button (click)="onSubmit()" mat-button>Post</button>
             </div>
           </form>
         </mat-step>

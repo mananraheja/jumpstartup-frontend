@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 export class EntrepreneurComponent {
 
 investor_obj=[
-       { "uuid": "",
+       { "uuid": "", 
         "firstName": "",
         "lastName": "",
         "phone_number": "0",

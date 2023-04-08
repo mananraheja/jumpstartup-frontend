@@ -77,17 +77,11 @@ export class InputFormEntrepreneurComponent {
     this.service.putUpdateUserDetails(putCall).subscribe({
       complete: () => { 
         console.log('put call completed');
-      },
-      error: (err) => { 
-        console.error(err) 
       }
     })
     this.service.postAddEntrepreneurDetails(body).subscribe({
       complete: () => { 
         this.router.navigate(['home']) 
-      },
-      error: (err) => { 
-        console.error(err) 
       }
     });
   }

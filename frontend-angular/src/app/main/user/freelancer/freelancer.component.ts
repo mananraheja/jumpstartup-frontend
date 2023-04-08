@@ -38,7 +38,6 @@ export class FreelancerComponent {
   flag:boolean=true
   constructor(private service: RESTAPIService,private router: Router ){
     if(this.router.url.includes('/home/jobs')==true){
-      console.log("THIS IS HOME?JOBBSS")
       this.displayJobs()
       this.flag=false;
      }
@@ -51,7 +50,6 @@ export class FreelancerComponent {
   @Input() childVar: string;
   i:number=0
   async displayJobs(){
-    console.log("Hey thereee!")
     await firstValueFrom(this.service.getAllJobs()).then((body:any)=>{
       let len = body.length
       while(this.i<len){
@@ -65,7 +63,6 @@ export class FreelancerComponent {
   }
   j:number=0
   async displayCompanies(){
-    console.log("Hey thereee!")
     await firstValueFrom(this.service.getAllCompanies()).then((body:any)=>{
       let len = body.length
     
@@ -80,7 +77,6 @@ export class FreelancerComponent {
   }
  
   viewJobDetails(jobUuid:string){
-    console.log("i AM JOBBBBBB",jobUuid)
       console.log('inside view Investors')
       this.router.navigate(
        ['/displayjob'],
@@ -88,7 +84,6 @@ export class FreelancerComponent {
     }
 
     viewCompanies(uuid:any){
-      console.log('inside view companies')
      this.router.navigate(
       ['/view'],
       {queryParams:{id:uuid, type:'entrepreneur'}})

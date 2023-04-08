@@ -43,11 +43,10 @@ freelancer_obj=[{
 
 
 flag:boolean=true
-
 constructor(private service: RESTAPIService, private router: Router){
-  console.log("I am inside entrepreneur constructor")
+  
   if(router.url.includes("/home/freelancer")==true)
-    {console.log("HOMEE/FREELANCER")
+    {
      this.displayFreelancers()
      this.flag=false
    }
@@ -55,9 +54,6 @@ constructor(private service: RESTAPIService, private router: Router){
   { this.flag=true
     this.displayinvestors();
   }
-
-  // console.log(this.investor_obj);
-   
   this.childVar='';
 }
 @Input() childVar: string;
@@ -65,16 +61,12 @@ constructor(private service: RESTAPIService, private router: Router){
 
 i:number=0
 async displayinvestors(){
-  console.log("Hey thereee!")
   await firstValueFrom(this.service.getAllInvestors()).then((body:any)=>{
     let len = body.length
     while(this.i<len){
     this.investor_obj=body;
-    console.log(this.investor_obj);
     this.i++;
     }
-    // console.log(this.investor_obj[1])
-
   })
 }
 j:number=0
@@ -83,14 +75,12 @@ async displayFreelancers(){
   let len=body.length
   while(this.j<len){
     this.freelancer_obj=body;
-    console.log(this.freelancer_obj);
     this.j++;
   }
  })
 }
 
 viewInvestors(uuid:any){
-  console.log('inside view Investors')
   this.router.navigate(
    ['/view'],
    {queryParams:{id:uuid, type:'investor'}})

@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-// import { RESTAPIService} from '../restapiservice/.service';
 import { RESTAPIService } from 'src/app/restapiservice.service';
-
-import { Router, ActivatedRoute } from "@angular/router";
 import {firstValueFrom} from 'rxjs';
 
 @Component({
@@ -24,7 +21,6 @@ export class ProfileComponent {
   work_experience=''
   fullName=''
   skills:string =''
-  
   company_name=''
   stakeholder=''
   company_size=''
@@ -34,45 +30,10 @@ export class ProfileComponent {
   profits_in_last_fy=''
   open_to_negotiations=''
   pitch=''
-  
   funding_available=''
   brands_built=''
 
-
-
-// if (this.type== 'investor') {
-//   return this.service.getInvestorUuid(this.uuid).subscribe
-// }
-constructor (private service: RESTAPIService,private router: Router , private activatedRoute: ActivatedRoute){
-  // this.activatedRoute.queryParams.subscribe(params => {
-  //   this.uuid = params['id'];
-  //   this.type=params['type'];
-  //   console.log(this.uuid + 'uuid')
-  //   console.log(this.type +'type')
-  //   if(this.uuid==undefined && this.type==undefined)
-  //     {
-  //       this.type = localStorage.getItem('type')??""
-  //       this.uuid = localStorage.getItem('uuid')??""
-  //       console.log(this.uuid+' from local')
-  //       console.log(this.type+' from local')
-  //       if (this.type == 'investor') {
-  //         this.investor_profile();
-  //       }
-        
-  //       else if( this.type=='entrepreneur'){
-  //         this.entrepreneur_profile();
-        
-           
-  //          }
-        
-  //       else if (this.type=='freelancer'){
-  //         this.freelancer_profile();
-  //         // this.service.getFreelancerUuid(this.uuid).subscribe((body:any)=>{
-  //         //   console.log(body['uuid'])
-  //         //  });
-  //       }
-  //     }
-  // });
+constructor (private service: RESTAPIService){
 
   if (this.type == 'investor') {
     this.investor_profile();
@@ -87,7 +48,6 @@ constructor (private service: RESTAPIService,private router: Router , private ac
   else if (this.type=='freelancer'){
     this.freelancer_profile();
   }
-  console.log('constructor destoryed')
   }
 
 async freelancer_profile(){
@@ -109,8 +69,6 @@ async freelancer_profile(){
 async entrepreneur_profile(){
   await firstValueFrom(this.service.getEntrepreneurUuid(this.uuid)).then((body: any)=>{
     console.log(body);
-    // this.username= body['username']
-    // this.email= body['email']
     this.phone= body['phone_number']
     this.domain= body['domain']
     this.institution= body['institution']
@@ -134,8 +92,6 @@ async entrepreneur_profile(){
 async investor_profile(){
   await firstValueFrom(this.service.getInvestorUuid(this.uuid)).then((body: any)=>{
     console.log(body);
-    // this.username= body['username']
-    // this.email= body['email']
     this.phone= body['phone_number']
     this.domain= body['domain']
     this.institution= body['institution']

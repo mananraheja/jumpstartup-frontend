@@ -55,17 +55,11 @@ export class InputFormFreelancerComponent {
     this.service.putUpdateUserDetails(putCall).subscribe({
       complete: () => { 
         console.log('put call completed');
-      },
-      error: (err) => { 
-        console.error(err) 
       }
     })
     this.service.postAddFreelancerDetails(body).subscribe({
       complete: () => { 
         this.router.navigate(['home']) 
-      },
-      error: (err) => { 
-        console.error(err) 
       }
     });
 

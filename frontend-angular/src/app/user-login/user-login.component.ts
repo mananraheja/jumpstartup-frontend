@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CheckboxRequiredValidator, FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
+import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { RESTAPIService} from '../restapiservice.service';
 import { Router } from "@angular/router"
@@ -123,23 +123,8 @@ export class UserLoginComponent {
       type: this.signUpForm.value.type??""
     };
     const body: string = JSON.stringify(obj);
-    console.log('harsh');
     this.firebaseSignUp(obj);
-    this.service.postCreateUser(body).subscribe((details :any) => {
-      {
-        localStorage.setItem('username',details['username']);
-        localStorage.setItem('type',details['type']);
-        localStorage.setItem('uuid',details['uuid']);
-        localStorage.setItem('email',details['email']);
-        console.log(details);
-        if (localStorage.getItem('type')=='freelancer')
-          this.router.navigate(['addFreelancerDetails']) 
-        else if(localStorage.getItem('type')=='investor')
-          this.router.navigate(['addInvestorDetails'])
-        else if (localStorage.getItem('type')=='entrepreneur')
-          this.router.navigate(['addEntrepreneurDetails'])
-      }
-      });
+    this.postSignUpcall(body);
 
     }
   
@@ -151,13 +136,11 @@ export class UserLoginComponent {
 
     if (userLoginGet && userLoginGet.hasError('required')) {
       this.errorMsg = "*Username required"
-      // console.log("invalid email address");
       return true;
     }
 
     else if (loginpass && loginpass.hasError('required')) {
       this.errorMsg = "*Password required";
-      // console.log("Invalid password");
       return true;
     }
     else if (loginpass && loginpass.invalid) {
@@ -182,16 +165,8 @@ export class UserLoginComponent {
       hashpass: this.loginForm.value.pswd??""
     };
     const body: string = JSON.stringify(obj);
-    this.service.postLoginUser(body).subscribe((details :any) => {
-      {
-        localStorage.setItem('username',details['username']);
-        localStorage.setItem('type',details['type']);
-        localStorage.setItem('uuid',details['uuid']);
-        localStorage.setItem('email',details['email']);
-        console.log(details);
-        this.router.navigate(['home']) 
-      }
-      });
+    this.firebaseLogin(obj);
+    this.postLoginCall(body);
   }
 
 
@@ -200,6 +175,36 @@ export class UserLoginComponent {
       return true;
     else
       return false;
+  }
+
+  postSignUpcall(body: string){
+    this.service.postCreateUser(body).subscribe((details :any) => {
+      {
+        localStorage.setItem('username',details['username']);
+        localStorage.setItem('type',details['type']);
+        localStorage.setItem('uuid',details['uuid']);
+        localStorage.setItem('email',details['email']);
+        console.log(details);
+        if (localStorage.getItem('type')=='freelancer')
+          this.router.navigate(['addFreelancerDetails']) 
+        else if(localStorage.getItem('type')=='investor')
+          this.router.navigate(['addInvestorDetails'])
+        else if (localStorage.getItem('type')=='entrepreneur')
+          this.router.navigate(['addEntrepreneurDetails'])
+      }
+      });
+  }
+
+  postLoginCall(body: string){
+    this.service.postLoginUser(body).subscribe((details :any) => {
+      {
+        localStorage.setItem('username',details['username']);
+        localStorage.setItem('type',details['type']);
+        localStorage.setItem('uuid',details['uuid']);
+        localStorage.setItem('email',details['email']);
+        this.router.navigate(['home']) 
+      }
+      });
   }
 
   firebaseSignUp(obj:any ){
@@ -214,8 +219,13 @@ export class UserLoginComponent {
       });
   }
 
+  firebaseLogin(obj: any) {
+    this.authService
+      .login(obj.email, obj.hashpass)
+      .subscribe(() => {
+        this.router.navigate(['/home']);
+      });
+  }
+
   
 } 
-
-
-

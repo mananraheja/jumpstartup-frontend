@@ -67,8 +67,8 @@ describe('InvestorComponent', () => {
 
     component.viewCompanies(uuid);
 
-    expect(navigateSpy).toHaveBeenCalledWith(['/company'], {
-      queryParams: { id: uuid },
+    expect(navigateSpy).toHaveBeenCalledWith(['/view'], {
+      queryParams: { id: uuid, type: 'entrepreneur'},
     });
   });
 });

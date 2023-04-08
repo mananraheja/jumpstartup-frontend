@@ -25,8 +25,6 @@ company_obj=[
         "pitch": ""}
 ]
   constructor(private service: RESTAPIService,private router: Router){
-    console.log("Inside constructor")
-   
     this.childVar='';
     this.displayCompanies()
     
@@ -36,21 +34,17 @@ company_obj=[
 
  i:number=0
 async displayCompanies(){
-  console.log("Hey thereee!")
   await firstValueFrom(this.service.getAllCompanies()).then((body:any)=>{
     let len = body.length
   
     while(this.i<len){
     this.company_obj=body;
-    console.log(this.company_obj);
     this.i++;
     }
-    console.log(this.company_obj[1])
 
   })
 }
 viewCompanies(uuid:any){
-  console.log('inside view companies')
  this.router.navigate(
   ['/view'],
   {queryParams:{id:uuid, type:'entrepreneur'}})

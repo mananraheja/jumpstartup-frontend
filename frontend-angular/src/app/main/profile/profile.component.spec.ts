@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { RESTAPIService } from '../../restapiservice.service';
-import { Router } from '@angular/router';
 import { of } from 'rxjs';
 
 import { ProfileComponent } from './profile.component';

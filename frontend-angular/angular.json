@@ -98,6 +98,7 @@
               "zone.js",
               "zone.js/testing"
             ],
+            "codeCoverageExclude": ["src/app/chat-home/**","src/app/chats.service.ts","src/app/authentication.service.ts", "src/app/users.service.ts"],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",

@@ -14,16 +14,13 @@ export class NavbarComponent {
   }
 // ngOnInit(): void{
    viewInvestor(){
-    console.log("innnnnn")
     this.router.navigate(['home'])
     this.entrepreneur.displayinvestors()
   }
   viewFreelancer(){
-    this.router.navigate(['home/freelancer'])
     this.entrepreneur.displayFreelancers()
   }
   addJobPostings(){
-    console.log('INSIde job postings')
     this.router.navigate(['addJobs'])
   } 
 
@@ -41,9 +38,7 @@ export class NavbarComponent {
   // user:string= "entrepreneur";
   user :string= localStorage.getItem('type')??""
   user_name = localStorage.getItem('username')??""
-
   checkRole(): string{
-   // var user="entrepreneur";
    if (this.user=="freelancer")
      return "f";
    else if( this.user=="investor")

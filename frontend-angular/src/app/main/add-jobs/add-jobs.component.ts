@@ -42,13 +42,10 @@ export class AddJobsComponent {
     postingDate: this.datePipe.transform(this.date,'yyyy-MM-dd')??""
   };
   const body: string = JSON.stringify(obj);
+
   this.service.postJobs(body).subscribe({
-    complete:() => { 
-      console.log('Job posted!')
+    complete: () => { 
       this.router.navigate(['home']) 
-    },
-    error: (err) => { 
-      console.error(err) 
     }
   });
 

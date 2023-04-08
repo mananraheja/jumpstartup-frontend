@@ -60,17 +60,11 @@ export class InputFormInvestorComponent {
     this.service.putUpdateUserDetails(putCall).subscribe({
       complete: () => { 
         console.log('put call completed');
-      },
-      error: (err) => { 
-        console.error(err) 
       }
     })
     this.service.postAddInvestorDetails(body).subscribe({
       complete: () => { 
         this.router.navigate(['home']) 
-      },
-      error: (err) => { 
-        console.error(err) 
       }
     });
 

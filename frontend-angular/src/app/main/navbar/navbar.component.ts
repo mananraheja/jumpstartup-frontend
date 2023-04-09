@@ -18,6 +18,7 @@ export class NavbarComponent {
     this.entrepreneur.displayinvestors()
   }
   viewFreelancer(){
+    this.router.navigate(['home/freelancer'])
     this.entrepreneur.displayFreelancers()
   }
   addJobPostings(){
